@@ -129,6 +129,10 @@ new Pledg(button, {
     onError: function (error) {
         // see the "Errors" section for more a detailed explanation
     },
+    // the function that checks the purchase validity
+    onCheckValidity({ isValid, error }) {
+        // see the "Data Validity" section
+    },
 })
 
 // The code below illustrates how the plugin can be reconfigured after its creation.
@@ -224,6 +228,7 @@ The settings below can be required or optional, depending on the configuration o
 | `onOpen` | `function` | Function to call when the iframe is opened (typically to hide/display some DOM elements) | Not Used |
 | `onClose` | `function` | Function to call when the iframe is closed (typically to hide/display some DOM elements) | Not Used |
 | `onCancel` | `function` | Function to call when the user closes himself the iframe without completing the payment | Not Used |
+| `onCheckValidity` | `function` | Function that should handle the validity of the data | Not Used |
 | `subtitle` | `string` | Subtitle of the purchase (use `\|` as line separator) | Not Used |
 | `currency` | `string` | Currency of the amount (*EUR* by default - only *EUR*, *GBP*, *CZK* and *NZD* are supported) | Not Used |
 | `containerElement` | `element` | DOM element which must contain the iframe (if not set, the iframe is displayed as a popin). It is **strongly** recommended to use a container and not a popin. Indeed, iOS does not support very well the large iframe in popins. Technically, if the popin is larger than the viewport, the window scrolls down automatically. This is a problem when creating the shares, since the user cannot see what he is typing. If it is absolutely necessary to use a popin, the plugin can be hidden for iOS devices (see an exemple of code [there](https://staging.merchant.ecard.pledg.co/popin-demo.html)). | Not Used |
@@ -454,7 +459,7 @@ The merchant can also specify a validity period when generating the token.
 The payload of the token is a JSON containing all the parameters normally passed to the plugin, except:
 
 - The parameter `signature` itself
-- The callbacks `onSuccess`, `onCancel`, `onError` and `onOpen`
+- The callbacks `onSuccess`, `onCancel`, `onError` `onCheckValidity` and `onOpen`
 - The parameter `container`
 
 Here is an example of code generating the token on the backend of the merchant. In this example, the front of the merchant sends a request to the backend of the merchant with a JSON containing all the parameters passed to the plugin, so that the backend of the merchant signs them:
@@ -474,6 +479,26 @@ app.post('/generate-signature', function (req, res) {
 An exemple of integration on the front of the merchant is provided [there](https://staging.merchant.ecard.pledg.co/standard-demo-with-signature.html).
 
 Many technical resources related to JWT (documentation, validation tools, etc.) are available on https://jwt.io.
+
+## Data validity
+
+The `onCheckValidity` function is called 
+- when the payment has been created without error
+- when an error occured while creating the payment (will not prevent the onError callback from firing)
+
+```javascript
+new Pledg(button, {
+    // ... Other settings merchantUid, amountCents, ...
+
+    onCheckValidity: function ({ isValid, error }) {
+        if (isValid) {
+            // Ex: display payment button 
+        } else {
+            // See Errors section
+        }
+    },
+})
+```
 
 ## Errors handling
 
@@ -980,7 +1005,7 @@ Nevertheless, some merchants do not want to load the eCard plugin in their payme
 
 The specificities of this integration are the following:
 * The settings `redirectUrl` and `cancelUrl` are mandatory
-* The settings `container`, `onSuccess`, `onCancel`, `onError` and `onOpen` are not applicable
+* The settings `container`, `onSuccess`, `onCancel`, `onError`, `onCheckValidity` and `onOpen` are not applicable
 * The host of the URL is `https://staging.front.ecard.pledg.co` in staging and `https://front.ecard.pledg.co` in production
 * The path of the URL is  `/purchases`
 * It is recommended to add a random text at the end of the URL to prevent any caching effect
