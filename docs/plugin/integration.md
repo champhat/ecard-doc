@@ -213,7 +213,7 @@ The settings below can be required or optional, depending on the configuration o
 
 | Name | Type | Details | Scoring |
 |--|--|--|--|
-| [`metadata`](https://pledgcorporate.github.io/ecard-plugin-doc/#/plugin/README?id=metadata) | `Object` | Merchant-specific data (typically, a tour operator may set `{departure_date: "2019-02-01"}` in this field) | Not Used |
+| [`metadata`](#metadata) | `Object` | Merchant-specific data (typically, a tour operator may set `{departure_date: "2019-02-01"}` in this field) | Not Used |
 | `phoneNumber` | `string` | Customer phone number (E164) | Mandatory |
 | `address` | `{street: string, city: string, stateProvince: string, zipcode: string, country: string}` | Customer billing address<br><br>The country must be an ISO 3166-1 alpha-2 code<br><br>`country` must be equal to `FR` for installment and deferred payments<br><br>If the street is split on several lines (e.g. "line1" and "line2"), it is recommended to join them in a single string with a comma (i.e. "line1, line2") | Mandatory |
 | `birthDate` |  `string` | Customer birth date (`YYYY-MM-DD`) | Optional |
@@ -286,7 +286,7 @@ with `secondInstallmentPaymentDate = "2020-11-15"`:
 
 ### Metadata
 
-In addition to the parameters described in the [previous](https://pledgcorporate.github.io/ecard-plugin-doc/#/plugin/README?id=optional-settings) section, the field `metadata` of the plugin contains :
+In addition to the parameters described in the [previous](#optional-settings) section, the field `metadata` of the plugin contains :
 
 * scoring data about the session
 * vertical-specific scoring data
