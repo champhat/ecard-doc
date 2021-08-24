@@ -537,6 +537,7 @@ The different values for `error.type` are the following:
 | `invalid_request_error` | Your settings are malformed (ex.: invalid `merchantId`, invalid `email`, invalid `amountCents`, ...) |
 | `maintenance` | The Pledg backend is under maintenance |
 | `internal_error` | The Pledg backend failed |
+| `network_error` | The network failed |
 | Payment errors |
 | `payment_refused` | The PSP of Pledg failed |
 | `bad_gateway` | The PSP of the merchant failed (back mode only) |
