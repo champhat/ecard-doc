@@ -1,6 +1,6 @@
-# Payment link
+# Purchase link
 
-Pledg gives you access to a page that allows you to generate payment links. You can forward these links to buyers so that they can pay you with Pledg.
+Pledg gives you access to a page that allows you to generate purchase links. You can forward these links to buyers so that they can pay you with Pledg.
 This page is located on your Pledg dashboard.
 
 ## Open the link generation page
@@ -15,7 +15,7 @@ Click on "Create a purchase link", as shown below :
 ## Fill in your client's and payment's details
 
 ::: tip
-Information about the client is mandatory to generate the payment link. We do not communicate them.
+Information about the client is mandatory to generate the purchase link. We do not communicate them.
 :::
 
 ![FillGeneratePaymentLink.png](https://pledg-assets.s3-eu-west-1.amazonaws.com/ecard-plugin-doc/dashboard/en/FillGeneratePaymentLink.png)
@@ -23,11 +23,9 @@ Information about the client is mandatory to generate the payment link. We do no
 ## Generate and send the link
 
 ::: tip
-Don't forget to validate to generate the payment link.
+Don't forget to validate to generate the purchase link.
 :::
 
 ![ValidateGeneratePaymentLink.png](https://pledg-assets.s3-eu-west-1.amazonaws.com/ecard-plugin-doc/dashboard/en/ValidateGeneratePaymentLink.png)
 
 If you have any questions : rodolphe.louis@pledg.co 👋
-
-
