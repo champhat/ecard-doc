@@ -83,7 +83,7 @@ Sur la partie droite de l'écran sont affichées :
 * Type : le type de paiement configuré : "Fractionné", "Différé" ...
 * Collaborateurs: le nombre de collaborateurs ayant accès au compte (dans cet exemple : un collaborateur)
 * Bouton modification : en cliquant sur le bouton vous pouvez modifier certaines informations du compte
-* Bouton génération de lien de paiement : voir section [Liens de paiement](https://docs.pledg.co/guide/payment-link.html)
+* Bouton génération de lien d'achat : voir section [Liens d'achat](https://docs.pledg.co/guide/purchase-link.html)
 
 ### Modification des caractéristiques d'un compte
 

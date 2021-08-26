@@ -83,7 +83,7 @@ On the right side of the screen are displayed :
 * Type: the type of payment configured: "Split", "Deferred" ...
 * Employees: the number of employees with access to the account (in this example: one employee).
 * Change button: by clicking on the button you can change some of the account information.
-* Generate payment link button : See section [Payment links](https://docs.pledg.co/en/guide/payment-link.html)
+* Generate purchase link button : See section [Purchase links](https://docs.pledg.co/en/guide/purchase-link.html)
 
 ### Changing the features of an account
 

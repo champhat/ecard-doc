@@ -8,7 +8,7 @@ La solution est intégrable sur la page de paiement des e-commerçants:
 - via une [redirection sur la page de paiement Pledg](../plugin/integration.md#direct-call-of-the-pledg-front)
 - via des [modules](../modules/) intégrables sur les principales plateformes e-commerce
 
-Vous avez aussi la possibilité de créer des [liens de paiement](payment-link.md).
+Vous avez aussi la possibilité de créer des [liens d'achat](purchase-link.md).
 
 Pour utiliser Pledg vous devez :
 

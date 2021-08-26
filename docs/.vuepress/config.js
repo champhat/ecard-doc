@@ -61,7 +61,7 @@ module.exports = {
           {
             text: "Plugin",
             link: "/plugin/",
-          },      
+          },
           {
             text: "Modules",
             link: "/modules/",
@@ -75,7 +75,7 @@ module.exports = {
             children: [
               "/guide/",
               "/guide/quickstart",
-              "/guide/payment-link"],
+              "/guide/purchase-link"],
           },
           {
             title: "Plugin",
@@ -101,7 +101,7 @@ module.exports = {
           apiKey: '3bd06682cc4110749630ba525d6de897',
           indexName: 'pledg',
           algoliaOptions: { 'facetFilters': ["lang:fr-FR"] }
-        },               
+        },
       },
       '/en/': {
         // text for the language dropdown
@@ -120,7 +120,7 @@ module.exports = {
           {
             text: "Plugin",
             link: "../../plugin/",
-          },      
+          },
           {
             text: "Modules",
             link: "../modules/",
