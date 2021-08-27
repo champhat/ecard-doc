@@ -20,7 +20,7 @@ Information about the client is mandatory to generate the purchase link. We do n
 
 ![FillGeneratePaymentLink.png](https://pledg-assets.s3-eu-west-1.amazonaws.com/ecard-plugin-doc/dashboard/en/FillGeneratePaymentLink.png)
 
-## Generate and send the link
+## Validate, generate and send the link
 
 ::: tip
 Don't forget to validate to generate the purchase link.
@@ -28,4 +28,4 @@ Don't forget to validate to generate the purchase link.
 
 ![ValidateGeneratePaymentLink.png](https://pledg-assets.s3-eu-west-1.amazonaws.com/ecard-plugin-doc/dashboard/en/ValidateGeneratePaymentLink.png)
 
-If you have any questions : rodolphe.louis@pledg.co 👋
+If you have any questions : support.tech@pledg.co 👋

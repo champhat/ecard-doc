@@ -44,4 +44,4 @@ Dans ce dernier cas vous pourrez cocher "Envoyer le lien par email" ou "Envoyer 
 
 Le lien permet ensuite au client de finaliser son achat.
 
-Si vous avez des questions : rodolphe.louis@pledg.co 👋
+Si vous avez des questions : support.tech@pledg.co 👋
