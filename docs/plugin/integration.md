@@ -1007,6 +1007,8 @@ Nevertheless, some merchants do not want to load the eCard plugin in their payme
 The specificities of this integration are the following:
 * The settings `redirectUrl` and `cancelUrl` are mandatory
 * The settings `container`, `onSuccess`, `onCancel`, `onError`, `onCheckValidity` and `onOpen` are not applicable
+* A query param `pledg_result` will be added to the `redirectUrl` when redirected. Values are the same ones expected from `onSuccess`
+* A query param `pledg_error` will be added to the `cancelUrl` when redirected. Values are the same ones expected from `onError`, although we use a signature if there is a `secret` in your [Merchant parameters](#merchant-parameters)
 * The host of the URL is `https://staging.front.ecard.pledg.co` in staging and `https://front.ecard.pledg.co` in production
 * The path of the URL is  `/purchases`
 * It is recommended to add a random text at the end of the URL to prevent any caching effect
