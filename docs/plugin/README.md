@@ -22,8 +22,8 @@ The code of the payment page/screen of the merchant just has to call the plugin/
 - The details of the purchase (amount, currency, reference, etc. - see [Settings](/plugin/integration.html#settings))
 - The callback to execute after receiving the result from the plugin/SDK
 
-The plugin/SDK can be used in two different modes: front mode and back mode. The
-differences between these two modes are summarized in the table below:
+The plugin/SDK can be used in various different modes.
+Differences are summarized in the table below:
 
 |                                        | Front mode   | Back mode  | Transfer mode |
 | -------------------------------------- | ------------ | ---------- | ------------- |
