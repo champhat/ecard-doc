@@ -1027,7 +1027,7 @@ It must be underlined that this integration provides a worse user experience, co
 This integration is possible only when the client pays by transfer.
 
 The API is exactly the same as [the one used to call the front](#direct-call-of-the-pledg-front), with the following differences:
-* The settings `redirectUrl` et `cancelUrl` are not applicable
+* The settings `redirectUrl` and `cancelUrl` are not applicable
 * The host of the URL is `https://staging.back.ecard.pledg.co` in staging and `https://back.ecard.pledg.co` in production
 * The path of the URL is `/api/payment_by_transfer`
 * The signature is mandatory
