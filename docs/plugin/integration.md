@@ -1224,7 +1224,7 @@ Therefore, if, in some situations, the merchant forces the 3DS verification, it 
 To avoid this, the merchant should deactivate the 3DS verification for the virtual cards provided by Pledg, which can be identified with their BIN:
 - 513218 (for Arkea)
 - 522719 (for Edenred corporate)
-- 591014 (for Edenred consumer)
+- 531014 (for Edenred consumer)
 - 48719434 (for Manager One corporate)
 - 48719334 (for Manager One consumer)
 
