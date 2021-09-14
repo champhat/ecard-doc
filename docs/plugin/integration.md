@@ -224,11 +224,12 @@ The settings below can be required or optional, depending on the configuration o
 
 | Name | Type | Details | Scoring |
 |--|--|--|--|
-| `onError` | `function` | Function that should handle and display potential errors | Not Used |
+| `onError` | `function` | Function that should handle and [display potential errors](#errors-handling) | Not Used |
+| `onSetback` | `function` | Function that should handle [setbacks](#setbacks) | Not Used |
 | `onOpen` | `function` | Function to call when the iframe is opened (typically to hide/display some DOM elements) | Not Used |
 | `onClose` | `function` | Function to call when the iframe is closed (typically to hide/display some DOM elements) | Not Used |
 | `onCancel` | `function` | Function to call when the user closes himself the iframe without completing the payment | Not Used |
-| `onCheckValidity` | `function` | Function that should handle the validity of the data | Not Used |
+| `onCheckValidity` | `function` | Function that should [handle the validity](#data-validity) of the data | Not Used |
 | `subtitle` | `string` | Subtitle of the purchase (use `\|` as line separator) | Not Used |
 | `currency` | `string` | Currency of the amount (*EUR* by default - only *EUR*, *GBP*, *CZK* and *NZD* are supported) | Not Used |
 | `containerElement` | `element` | DOM element which must contain the iframe (if not set, the iframe is displayed as a popin). It is **strongly** recommended to use a container and not a popin. Indeed, iOS does not support very well the large iframe in popins. Technically, if the popin is larger than the viewport, the window scrolls down automatically. This is a problem when creating the shares, since the user cannot see what he is typing. If it is absolutely necessary to use a popin, the plugin can be hidden for iOS devices (see an exemple of code [there](https://staging.merchant.ecard.pledg.co/popin-demo.html)). | Not Used |
@@ -554,7 +555,50 @@ If a payment is rejected by the PSP (3DS failed,
 insufficient funds, etc.), an error message is displayed to the
 user inside the iframe, but no error is raised by the plugin. Indeed,
 in such as situation, the user keeps the possibility to retry
-with another card.
+with another card (See [Setbacks](#setbacks)).
+
+
+## Setbacks
+
+Some errors are not critical and will not close the payment funnel. Setbacks usage allows you to have some insights.
+
+Setbacks are handled in the `onSetback` function (optionnal).  
+This callback provide an object containing two properties: `type` and `debug`, for instance:
+
+```javascript
+{
+    type: "checkout_completion_failure",
+    debug: "Your card has been declined. Try another card."
+}
+```
+
+```javascript
+new Pledg(button, {
+    // ... Other settings merchantUid, amountCents, ...
+
+    onSetback: function (payload) {
+        if (payload.type === "checkout_completion_failure") {
+            // Checkout failed: unauthorized card type, insufficient funds, iban is not valid ...
+        } else if (payload.type === "otp_validation_failure") {
+            // One time password sent by phone could not be verified
+        },
+        // ...
+    },
+})
+```
+
+The different values for `payload.type` are the following:
+
+| Name | Cause |
+|------|-------|
+| `checkout_completion_failure` | The user checkout has failed (insufficient funds, invalid card, [...]), the user is invited to retry or change payment method |
+| `otp_validation_failure` | Some payments requires a phone number verification, either validation code is wrong or service is not available for this phone number. |
+| `split_validation_failure` | For split payment, user entered a wrong or duplicated email, phone |
+
+Important notes:
+- This list is exhaustive but will be updated.
+- The use of setbacks does not replace [error handling](#errors-handling), it is optional.
+
 
 ## Tests
 
@@ -1006,7 +1050,7 @@ Nevertheless, some merchants do not want to load the eCard plugin in their payme
 
 The specificities of this integration are the following:
 * The settings `redirectUrl` and `cancelUrl` are mandatory
-* The settings `container`, `onSuccess`, `onCancel`, `onError`, `onCheckValidity` and `onOpen` are not applicable
+* The settings `container`, `onSuccess`, `onCancel`, `onError`, `onSetback`, `onCheckValidity` and `onOpen` are not applicable
 * A query param `pledg_result` will be added to the `redirectUrl` when redirected. Values are the same ones expected from `onSuccess`
 * A query param `pledg_error` will be added to the `cancelUrl` when redirected. Values are the same ones expected from `onError`, although we use a signature if there is a `secret` in your [Merchant parameters](#merchant-parameters)
 * The host of the URL is `https://staging.front.ecard.pledg.co` in staging and `https://front.ecard.pledg.co` in production
