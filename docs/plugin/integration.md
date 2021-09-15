@@ -231,7 +231,7 @@ The settings below can be required or optional, depending on the configuration o
 | `onCancel` | `function` | Function to call when the user closes himself the iframe without completing the payment | Not Used |
 | `onCheckValidity` | `function` | Function that should [handle the validity](#data-validity) of the data | Not Used |
 | `subtitle` | `string` | Subtitle of the purchase (use `\|` as line separator) | Not Used |
-| `currency` | `string` | Currency of the amount (*EUR* by default - only *EUR*, *GBP*, *CZK* and *NZD* are supported) | Not Used |
+| `currency` | `string` | Currency of the amount (*EUR* by default - only *EUR* and *GBP* are supported) | Not Used |
 | `containerElement` | `element` | DOM element which must contain the iframe (if not set, the iframe is displayed as a popin). It is **strongly** recommended to use a container and not a popin. Indeed, iOS does not support very well the large iframe in popins. Technically, if the popin is larger than the viewport, the window scrolls down automatically. This is a problem when creating the shares, since the user cannot see what he is typing. If it is absolutely necessary to use a popin, the plugin can be hidden for iOS devices (see an exemple of code [there](https://staging.merchant.ecard.pledg.co/popin-demo.html)). | Not Used |
 | `lang` | `string` | Language to be used (*de_DE*, *en_GB*, *es_ES*, *fr_FR*, *it_IT* and *nl_NL* only - *fr_FR* by default) | Not Used |
 | `paymentNotificationUrl` | `string` | Merchant URL (*https://www.example.com*) or email address (*mailto:john.doe@gmail.com*) to call at the payment end | Not Used |
