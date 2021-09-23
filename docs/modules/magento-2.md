@@ -89,7 +89,7 @@ Une fois tout les champs renseignés, sauvegarder la configuration (bouton "Save
 
 Si les modifications de la configuration du moyen de paiement ne sont pas prises en compte, il faut vider le cache de Magento
   - Allez dans System > Cache management et cliquez sur le bouton "Flush Magento Cache".
-  - Attenez jusqu'à avoir la notification "The Magento cache storage has been flushed.".
+  - Attendez jusqu'à avoir la notification "The Magento cache storage has been flushed.".
 
 ![Capture_FlushCache_Red.PNG](https://storage.googleapis.com/slite-api-files-production/files/IRZjGiN~EW/ee4d282d-2123-4884-a445-a63d9c0a6b2a/Capture_FlushCache_Red.PNG)
 
